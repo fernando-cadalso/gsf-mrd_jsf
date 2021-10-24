@@ -1,0 +1,41 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+        http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0">
+
+	<persistence-unit name="gsf-mrd">
+
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+<!-- 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider> -->
+
+		<jta-data-source>java:/gsf-mrdDS</jta-data-source>
+
+		<class>local.fmc.gsf.mrd.dominio.Dispensa</class>
+		<class>local.fmc.gsf.mrd.dominio.ItemDaCasa</class>
+		<class>local.fmc.gsf.mrd.dominio.ItemDeConsumo</class>
+		<class>local.fmc.gsf.mrd.dominio.ListaModelo</class>
+		<class>local.fmc.gsf.mrd.dominio.Morador</class>
+
+		<properties>
+
+			<!-- Configuracoes especificas do JPA -->
+			<property name="javax.persistence.jdbc.driver"
+				value="com.mysql.cj.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:mysql://localhost:3306/gsf_mrd" />
+			<property name="javax.persistence.jdbc.user"
+				value="fernando" />
+			<property name="javax.persistence.jdbc.password"
+				value="@#H0m3369" />
+
+			<!-- Configuracoes especificas do Hibernate -->
+			<property name="hibernate.dialect"
+				value="org.hibernate.dialect.MySQLInnoDBDialect" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+
+		</properties>
+	</persistence-unit>
+</persistence>
